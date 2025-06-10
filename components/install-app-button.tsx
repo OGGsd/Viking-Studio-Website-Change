@@ -5,12 +5,19 @@ import { Button } from "@/components/ui/button"
 import { Download } from "lucide-react"
 import { PWAInstallPrompt } from "@/components/pwa-install-prompt"
 
+declare global {
+  interface Navigator {
+    standalone?: boolean | string
+  }
+}
+
 interface InstallAppButtonProps {
   className?: string
   variant?: "default" | "outline" | "secondary" | "ghost" | "link" | "destructive"
+  hidden?: boolean // New prop to control visibility
 }
 
-export function InstallAppButton({ className = "", variant = "outline" }: InstallAppButtonProps) {
+export function InstallAppButton({ className = "", variant = "outline", hidden = true }: InstallAppButtonProps) {
   const [isInstallable, setIsInstallable] = useState(false)
   const [showPrompt, setShowPrompt] = useState(false)
   const [isAppInstalled, setIsAppInstalled] = useState(false)
@@ -82,8 +89,8 @@ export function InstallAppButton({ className = "", variant = "outline" }: Instal
     setShowPrompt(true)
   }
 
-  if (isAppInstalled) {
-    return null // Don't show the button if the app is already installed
+  if (hidden || isAppInstalled) {
+    return null // Don't show the button if hidden or app is already installed
   }
 
   return (

@@ -49,6 +49,9 @@ export function PWAInstallPrompt({ manuallyTriggered = false, onClose, deferredP
     // Handle automatic timer for showing the prompt
     let timerRef: NodeJS.Timeout | null = null
 
+    // Auto-show functionality temporarily disabled per request
+    // Original timer code kept below for future reference
+    /*
     if (!manuallyTriggered) {
       console.log("Setting up 60-second timer for PWA prompt")
 
@@ -75,6 +78,7 @@ export function PWAInstallPrompt({ manuallyTriggered = false, onClose, deferredP
         console.log("App is already installed, not setting timer")
       }
     }
+    */
 
     // Cleanup function
     return () => {

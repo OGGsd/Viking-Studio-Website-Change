@@ -30,41 +30,32 @@ const DynamicReelsSection = dynamic(
 // Video data with unique Vercel Blob Storage URLs and poster images
 const videos = [
   {
-    src: "https://em2ukou4j2juviho.public.blob.vercel-storage.com/AQMBPlMUNDAxufkqOuKv1frq8WmRGF_fFJgIVf0o42WB6R6BRfYy4nwWl2J3Y-llY5mnXum7UeFsAddxKlg9_-Da4_14VkLnVZfT-Rg-0EOW2zyMKmKnnwxLzlrbgh4voLdDne.mp4",
+    src: "https://kt5xwoxw7ivvaxql.public.blob.vercel-storage.com/AQMBPlMUNDAxufkqOuKv1frq8WmRGF_fFJgIVf0o42WB6R6BRfYy4nwWl2J3Y-llY5mnXum7UeFsAddxKlg9_-Da4_14VkLnVZfT-Rg-GRRsRonamv2LjX6rKPnc2lb6OFKcLv.mp4",
     poster: "/barber-haircut.png",
     title: "Herrklippning",
   },
   {
-    src: "https://em2ukou4j2juviho.public.blob.vercel-storage.com/AQMHHG8Ef7TNZCZzYOneLpBH_CguvjHArpOqMa_7OEocG21NHiyKIk_4yVAYKxscmtRIjE5K2LOOo8GB1FPFurDC1-D0LETwuktsBuU-eKwTM3d2vuB0rhe3zTlQURHGyEeSsb.mp4",
+    src: "https://kt5xwoxw7ivvaxql.public.blob.vercel-storage.com/AQMHHG8Ef7TNZCZzYOneLpBH_CguvjHArpOqMa_7OEocG21NHiyKIk_4yVAYKxscmtRIjE5K2LOOo8GB1FPFurDC1-D0LETwuktsBuU-NXWZOVYSeKVGucA4bESErNwp7DvUDn.mp4",
     poster: "/beard-trim.png",
     title: "Skäggklippning",
   },
   {
-    src: "https://em2ukou4j2juviho.public.blob.vercel-storage.com/AQN1S6SyFA1zPUUFYD9JrEqXKiaufX2jRYc_NtnsBeAZOlevZPuPd44MBoXjadWtxzEuCeU5IJ3hWbfmniZQhoxjV3quSOMka9DdlSM-FOh32nROlYYRBYcssTqpgAyodnCAuf.mp4",
+    src: "https://kt5xwoxw7ivvaxql.public.blob.vercel-storage.com/AQMzBas-RcU9rU0x9ayJPMZ4GDmZvEIZy1NtWnaLzF5P3BLsXjnS3_cRC-v4R8uz0Z3xDlEzHERXXIuPUdE0z-hx-vGoCst9x4PoyZuV9oVcVGUGvCEd0dt.mp4",
     poster: "/diverse-hair-styling.png",
     title: "Styling",
   },
   {
-    src: "https://em2ukou4j2juviho.public.blob.vercel-storage.com/AQNfKX0VDSuhKXWXO2pEuYjib5wlQN8KhHuWaugXCUnVYLReRysbqYUClvrHN8fT9OAmHrGdQpzqPdfis5HLuFIi3PQjJexRWlIQ5bs-7kEtwbh0bknLtJrxLMuTOeeqLsIg0u.mp4",
+    src: "https://kt5xwoxw7ivvaxql.public.blob.vercel-storage.com/AQN1S6SyFA1zPUUFYD9JrEqXKiaufX2jRYc_NtnsBeAZOlevZPuPd44MBoXjadWtxzEuCeU5IJ3hWbfmniZQhoxjV3quSOMka9DdlSM-YYjeRulPqzwCOUJ067j1qTshKAaSow.mp4",
     title: "Skäggtrimning",
   },
   {
-    src: "https://em2ukou4j2juviho.public.blob.vercel-storage.com/AQOCW_6B8KzjYTYP6qxwRBnrQ0l9LW_G7jQeZK9MPDqzmWCD2H2FTO2U7zXpBuRt9V3ysaUmj3ekfpkA9UUH-z50bFDKSW7MCUNgkDc-9yYX9OfPFyV1gOgQmKZ66afu1E6uav.mp4",
+    src: "https://kt5xwoxw7ivvaxql.public.blob.vercel-storage.com/AQNfKX0VDSuhKXWXO2pEuYjib5wlQN8KhHuWaugXCUnVYLReRysbqYUClvrHN8fT9OAmHrGdQpzqPdfis5HLuFIi3PQjJexRWlIQ5bs-ycevfAEoDRDwpfPuPs2ATjcCloRyej.mp4",
     title: "Fade-klippning",
   },
   {
-    src: "https://em2ukou4j2juviho.public.blob.vercel-storage.com/AQOTGiIrC2GYvIkdhIEUp_CX92BGg5439eShCgFoeI3CyaJ15UZki4jQlzSR64ln-xaXH8-fB5CteH3tqxERocmpzXQWwBsoTY2FNIU-sTli4nl5Z6qqHqgzPvgygkzl8Odisx.mp4",
+    src: "https://kt5xwoxw7ivvaxql.public.blob.vercel-storage.com/AQPLwo09JyjAflVauXPINTA7OhRx65OCtneRT_-xSIHy6dv8VWtuI7xI__OwgykQ2qFrRYGLM400q-DG_FW4FJXb-RCoOvX5YBz4fWqMkZQ2L1Whbd42JJs.mp4",
     title: "Modern herrklippning",
-  },
-  {
-    src: "https://em2ukou4j2juviho.public.blob.vercel-storage.com/AQOfIdRTNmI7q26cI5r011PTU6D_xjRkHjyJiUJNbYySRs85yhGKi3NWklV1lckf7oWfJR3-iIAmyKQE4Subi04p9XKBg9_7qmmWErQ-oT4uCY3vf8l1nb3uQSAoTsP3t6CGj1.mp4",
-    title: "Skäggstyling",
-  },
-  {
-    src: "https://em2ukou4j2juviho.public.blob.vercel-storage.com/AQOmci0KootGYn1PzHTI5Tmkwi_2dkkqB_LsfDQvkBkC99mxP0WTn7HAUMwVkcClw0pLSkdygC3GVczju_ZkWzKbLkxURu6Ymz1_Wig-5hwnINWOGoLWqzEP7jzCDEDeqlLLEy.mp4",
-    poster: "/professional-barber-haircut.png",
-    title: "Specialklippning",
-  },
+  }
 ]
 
 // Booking URLs for each service
@@ -390,12 +381,14 @@ export default function Home() {
                   <Calendar className="h-5 w-5" />
                   Boka nu
                 </Button>
-                <Button
-                  variant="outline"
-                  className="border-white hover:bg-white/10 text-base md:text-lg py-5 md:py-7 px-6 md:px-8 rounded-lg transition-all duration-300"
-                >
-                  <Phone className="mr-2 h-5 w-5" /> 036-777 99 97
-                </Button>
+                <a href="tel:+46367779997">
+                  <Button
+                    variant="outline"
+                    className="border-white hover:bg-white/10 text-base md:text-lg py-5 md:py-7 px-6 md:px-8 rounded-lg transition-all duration-300"
+                  >
+                    <Phone className="mr-2 h-5 w-5" /> Ring Oss
+                  </Button>
+                </a>
               </div>
             </div>
           </ResponsiveContainer>
@@ -972,7 +965,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="flex flex-wrap justify-center gap-4 md:gap-8 md:gap-12 mb-6 md:mb-0">
+              <div className="flex flex-wrap justify-center gap-4 md:gap-12 mb-6 md:mb-0">
                 <a
                   href="#om-oss"
                   onClick={(e) => {

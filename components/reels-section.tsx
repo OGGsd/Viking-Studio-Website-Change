@@ -9,6 +9,8 @@ import { useMediaQuery } from "@/hooks/use-media-query"
 
 interface VideoProps {
   src: string
+  srcMobile?: string // Optional mobile-optimized version
+  srcTablet?: string // Optional tablet-optimized version
   poster?: string
   title?: string
 }
@@ -591,6 +593,19 @@ export function ReelsSection({ videos }: { videos: VideoProps[] }) {
 
   // Initialize the first video when component mounts
   useEffect(() => {
+    // Fix mobile viewport height
+    if (isMobile) {
+      const setVh = () => {
+        const vh = window.innerHeight * 0.01
+        document.documentElement.style.setProperty('--vh', `${vh}px`)
+      }
+      setVh()
+      window.addEventListener('resize', setVh)
+      return () => window.removeEventListener('resize', setVh)
+    }
+  }, [isMobile])
+
+  useEffect(() => {
     if (videoRefs.current[0] && isSectionVisible) {
       const firstVideo = videoRefs.current[0]
 
@@ -618,7 +633,7 @@ export function ReelsSection({ videos }: { videos: VideoProps[] }) {
 
   // Get container height based on device
   const getContainerHeight = () => {
-    if (isMobile) return "100vh" // Full height on mobile (TikTok style)
+    if (isMobile) return "calc(var(--vh, 1vh) * 100)" // Dynamic mobile height
     if (isTablet) return "90vh" // Taller on tablet
     return "95vh" // Taller on desktop
   }
@@ -781,14 +796,20 @@ export function ReelsSection({ videos }: { videos: VideoProps[] }) {
         {videos.map((video, index) => (
           <div
             key={index}
-            ref={(el) => (videoContainerRefs.current[index] = el)}
+            ref={(el) => { videoContainerRefs.current[index] = el }}
             className="h-full w-full snap-start snap-always flex items-center justify-center"
             id={`video-container-${index}`}
           >
             <div className={`${getVideoContainerStyle()} bg-stone-800 rounded-xl overflow-hidden shadow-xl relative`}>
               <video
-                ref={(el) => (videoRefs.current[index] = el)}
-                src={video.src}
+                ref={(el) => { videoRefs.current[index] = el }}
+                src={
+                  isMobile && video.srcMobile
+                    ? video.srcMobile
+                    : isTablet && video.srcTablet
+                    ? video.srcTablet
+                    : video.src
+                }
                 poster={video.poster}
                 className={`w-full h-full ${isMobile ? "object-cover" : "object-contain"}`}
                 playsInline
@@ -797,9 +818,17 @@ export function ReelsSection({ videos }: { videos: VideoProps[] }) {
                 controls={false}
                 onEnded={handleVideoEnded}
                 onClick={togglePlay}
-                preload="metadata"
+                preload={index <= currentIndex + 1 ? "metadata" : "none"} // Only preload nearby videos
                 data-index={index}
                 crossOrigin="anonymous"
+                onError={(e) => {
+                  // Fallback to default source if device-specific fails
+                  const video = e.target as HTMLVideoElement
+                  if (video.src !== video.src) {
+                    video.src = video.src
+                    video.load()
+                  }
+                }}
               />
 
               {/* Title overlay */}

@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+import withPWA from 'next-pwa';
+
 const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
@@ -10,13 +12,17 @@ const nextConfig = {
     unoptimized: true,
     domains: ['vikingsalong.axiestudio.se'],
   },
-  // PWA config
   pwa: {
     dest: 'public',
     register: true,
     skipWaiting: true,
     disable: process.env.NODE_ENV === 'development',
-  },
+    buildExcludes: [
+      /middleware-manifest.json$/,
+      /_buildManifest.js$/,
+      /_ssgManifest.js$/
+    ]
+  }
 };
 
-export default nextConfig;
+export default withPWA(nextConfig);

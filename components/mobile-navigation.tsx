@@ -66,16 +66,16 @@ export function MobileNavigation({ scrollToSection }: MobileNavigationProps) {
   return (
     <>
       {/* Bottom Navigation Bar */}
-      <div className="fixed bottom-0 left-0 right-0 bg-stone-900 border-t border-stone-800 z-50 md:hidden">
-        <div className="flex justify-around items-center h-16">
+      <div className="fixed bottom-0 left-0 right-0 bg-stone-900 border-t border-stone-800 z-50 lg:hidden">
+        <div className="flex justify-around items-center h-20 md:h-16">
           <button
             onClick={() => handleNavigation("hero")}
             className={`flex flex-col items-center justify-center w-1/5 py-2 ${
               activeSection === "home" ? "text-amber-500" : "text-stone-400"
             }`}
           >
-            <Home className="h-5 w-5" />
-            <span className="text-xs mt-1">Hem</span>
+            <Home className="h-6 w-6 md:h-5 md:w-5" />
+            <span className="text-sm md:text-xs mt-1">Hem</span>
           </button>
           <button
             onClick={() => handleNavigation("vara-verk")}
@@ -83,8 +83,8 @@ export function MobileNavigation({ scrollToSection }: MobileNavigationProps) {
               activeSection === "vara-verk" ? "text-amber-500" : "text-stone-400"
             }`}
           >
-            <Scissors className="h-5 w-5" />
-            <span className="text-xs mt-1">Verk</span>
+            <Scissors className="h-6 w-6 md:h-5 md:w-5" />
+            <span className="text-sm md:text-xs mt-1">Verk</span>
           </button>
           <button
             onClick={() => handleNavigation("barberare")}
@@ -92,8 +92,8 @@ export function MobileNavigation({ scrollToSection }: MobileNavigationProps) {
               activeSection === "barberare" ? "text-amber-500" : "text-stone-400"
             }`}
           >
-            <Users className="h-5 w-5" />
-            <span className="text-xs mt-1">Team</span>
+            <Users className="h-6 w-6 md:h-5 md:w-5" />
+            <span className="text-sm md:text-xs mt-1">Team</span>
           </button>
           <button
             onClick={() => handleNavigation("tjanster")}
@@ -101,23 +101,24 @@ export function MobileNavigation({ scrollToSection }: MobileNavigationProps) {
               activeSection === "tjanster" ? "text-amber-500" : "text-stone-400"
             }`}
           >
-            <Calendar className="h-5 w-5" />
-            <span className="text-xs mt-1">Boka</span>
+            <Calendar className="h-6 w-6 md:h-5 md:w-5" />
+            <span className="text-sm md:text-xs mt-1">Boka</span>
           </button>
-          <button
-            onClick={() => handleNavigation("kontakt")}
-            className={`flex flex-col items-center justify-center w-1/5 py-2 ${
-              activeSection === "kontakt" ? "text-amber-500" : "text-stone-400"
-            }`}
-          >
-            <Phone className="h-5 w-5" />
-            <span className="text-xs mt-1">Kontakt</span>
-          </button>
+          <a href="tel:+46367779997" className="w-1/5">
+            <button
+              className={`flex flex-col items-center justify-center w-full py-2 ${
+                activeSection === "kontakt" ? "text-amber-500" : "text-stone-400"
+              }`}
+            >
+              <Phone className="h-6 w-6 md:h-5 md:w-5" />
+              <span className="text-sm md:text-xs mt-1">Kontakt</span>
+            </button>
+          </a>
         </div>
       </div>
 
       {/* Floating Action Button for Booking */}
-      <div className="fixed bottom-20 right-4 z-50 md:hidden">
+      <div className="fixed bottom-20 right-4 z-50 lg:hidden">
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
