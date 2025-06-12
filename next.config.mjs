@@ -10,9 +10,10 @@ const nextConfig = {
     unoptimized: true,
     domains: ['vikingsalong.axiestudio.se'],
   },
-  experimental: {
-    esmExternals: 'loose'
-  }
+  // Remove experimental options that are causing issues
+  swcMinify: true,
+  // Ensure proper module resolution
+  transpilePackages: ['framer-motion']
 };
 
 export default nextConfig;
