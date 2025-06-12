@@ -14,6 +14,7 @@ import { PWAInstallPrompt } from "@/components/pwa-install-prompt"
 import { useMediaQuery } from "@/hooks/use-media-query"
 import dynamic from "next/dynamic"
 import { InstallAppButton } from "@/components/install-app-button"
+import Link from "next/link"
 
 // Importera den nya hooken högst upp i filen, efter de andra importerna
 import { usePreventAutoScroll } from "@/hooks/use-prevent-auto-scroll"
@@ -1011,6 +1012,12 @@ function HomePage() {
               >
                 Kontakt
               </a>
+              <Link
+                href="/integritetspolicy"
+                className="hover:text-amber-400 transition text-center md:text-left text-sm md:text-base"
+              >
+                Integritetspolicy
+              </Link>
               <InstallAppButton
                 className="hover:text-amber-400 transition text-center md:text-left text-sm md:text-base bg-amber-600 hover:bg-amber-500 text-white px-3 py-1 rounded"
                 variant="default"
