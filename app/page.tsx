@@ -12,7 +12,6 @@ import { MobileNavigation } from "@/components/mobile-navigation"
 import { CookieConsent } from "@/components/cookie-consent"
 import { PWAInstallPrompt } from "@/components/pwa-install-prompt"
 import { useMediaQuery } from "@/hooks/use-media-query"
-import { generateStructuredData } from "@/components/structured-data"
 import dynamic from "next/dynamic"
 import { InstallAppButton } from "@/components/install-app-button"
 
@@ -156,9 +155,6 @@ export default function Home() {
 
   return (
     <>
-      {/* Structured Data for SEO */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: generateStructuredData() }} />
-
       <div className="min-h-screen bg-stone-900 text-stone-100 pb-16 md:pb-0">
         {/* Header */}
         <header className="sticky top-0 z-40 bg-stone-900/95 backdrop-blur-sm border-b border-stone-800">
