@@ -99,10 +99,10 @@ export function InstallAppButton({ className = "", variant = "outline", hidden =
         variant={variant}
         onClick={handleInstallClick}
         className={`${className} flex items-center gap-2`}
-        aria-label="Ladda ner appen"
+        aria-label="Inte i Appen?"
       >
         <Download className="h-4 w-4" />
-        <span>Ladda ner appen</span>
+        <span>Inte i Appen?</span>
       </Button>
       {showPrompt && (
         <PWAInstallPrompt
