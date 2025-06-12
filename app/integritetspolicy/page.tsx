@@ -1,29 +1,26 @@
-'use client'
-
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ResponsiveContainer } from "@/components/responsive-container"
 import { ArrowLeft, Shield, Eye, Lock, Users, FileText, Mail } from "lucide-react"
-import { useRouter } from "next/navigation"
+import Link from "next/link"
 
 export default function IntegritetspolicyPage() {
-  const router = useRouter()
-
   return (
     <div className="min-h-screen bg-stone-900 text-stone-100">
       {/* Header */}
       <header className="sticky top-0 z-40 bg-stone-900/95 backdrop-blur-sm border-b border-stone-800">
         <ResponsiveContainer className="flex items-center justify-between py-3">
           <div className="flex items-center gap-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => router.back()}
-              className="hover:bg-stone-800"
-            >
-              <ArrowLeft className="h-5 w-5" />
-              <span className="sr-only">Tillbaka</span>
-            </Button>
+            <Link href="/">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="hover:bg-stone-800"
+              >
+                <ArrowLeft className="h-5 w-5" />
+                <span className="sr-only">Tillbaka</span>
+              </Button>
+            </Link>
             <div className="flex items-center gap-2">
               <Image
                 src="/images/viking-logo.jpeg"
@@ -295,12 +292,11 @@ export default function IntegritetspolicyPage() {
 
             {/* Back to Home Button */}
             <div className="text-center mt-12">
-              <Button
-                onClick={() => router.push('/')}
-                className="bg-amber-600 hover:bg-amber-500 text-white px-8 py-3 text-lg"
-              >
-                Tillbaka till startsidan
-              </Button>
+              <Link href="/">
+                <Button className="bg-amber-600 hover:bg-amber-500 text-white px-8 py-3 text-lg">
+                  Tillbaka till startsidan
+                </Button>
+              </Link>
             </div>
           </div>
         </ResponsiveContainer>
