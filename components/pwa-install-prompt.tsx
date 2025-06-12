@@ -47,48 +47,12 @@ export function PWAInstallPrompt({ manuallyTriggered = false, onClose, deferredP
     // Add event listener for beforeinstallprompt
     window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt)
 
-    // Handle automatic timer for showing the prompt
-    let timerRef: NodeJS.Timeout | null = null
-
-    // Auto-show functionality temporarily disabled per request
-    // Original timer code kept below for future reference
-    /*
-    if (!manuallyTriggered) {
-      console.log("Setting up 60-second timer for PWA prompt")
-
-      // Check if the app is already installed to avoid showing the prompt unnecessarily
-      const isAppInstalled =
-        window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true
-
-      if (!isAppInstalled) {
-        // Use a shorter timeout for testing if needed (e.g., 5000 for 5 seconds)
-        timerRef = setTimeout(() => {
-          console.log("Timer fired after 60 seconds")
-
-          // Only show if not dismissed previously
-          const isDismissed = localStorage.getItem("pwaInstallPromptDismissed") === "true"
-
-          if (!isDismissed) {
-            console.log("Showing PWA prompt after timer")
-            setShowPrompt(true)
-          } else {
-            console.log("PWA prompt was previously dismissed, not showing")
-          }
-        }, 60000) // 60 seconds
-      } else {
-        console.log("App is already installed, not setting timer")
-      }
-    }
-    */
+    // NO MORE AUTOMATIC TIMER - REMOVED COMPLETELY!
+    // The prompt will ONLY show when manually triggered
 
     // Cleanup function
     return () => {
       window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt)
-
-      if (timerRef) {
-        console.log("Clearing PWA prompt timer on cleanup")
-        clearTimeout(timerRef)
-      }
     }
   }, [manuallyTriggered, deferredPrompt])
 
@@ -145,8 +109,7 @@ export function PWAInstallPrompt({ manuallyTriggered = false, onClose, deferredP
   }
 
   const dismissPrompt = () => {
-    // Remember that the user dismissed the prompt
-    localStorage.setItem("pwaInstallPromptDismissed", "true")
+    // NO MORE PERSISTENT DISMISSAL - just close
     closePrompt()
   }
 

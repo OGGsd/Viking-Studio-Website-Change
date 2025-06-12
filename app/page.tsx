@@ -10,7 +10,6 @@ import { ServiceCardMobile } from "@/components/service-card-mobile"
 import { ResponsiveContainer } from "@/components/responsive-container"
 import { MobileNavigation } from "@/components/mobile-navigation"
 import { CookieConsent } from "@/components/cookie-consent"
-import { PWAInstallPrompt } from "@/components/pwa-install-prompt"
 import { useMediaQuery } from "@/hooks/use-media-query"
 import dynamic from "next/dynamic"
 import { InstallAppButton } from "@/components/install-app-button"
@@ -1065,13 +1064,8 @@ function HomePage() {
       {/* Cookie Consent Banner */}
       {isHydrated && <CookieConsent />}
 
-      {/* PWA Install Prompt - Automatic timer version */}
-      {isHydrated && (
-        <PWAInstallPrompt
-          manuallyTriggered={false}
-          key="auto-pwa-prompt" // Lägg till en unik nyckel för att säkerställa korrekt rendering
-        />
-      )}
+      {/* NO MORE AUTOMATIC PWA INSTALL PROMPT! */}
+      {/* The PWA prompt will ONLY show when the button is clicked */}
     </div>
   )
 }
