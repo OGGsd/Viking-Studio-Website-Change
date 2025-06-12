@@ -64,8 +64,14 @@ export function BookingModal({ isOpen, onClose, serviceName, bookingUrl, price }
         className={`sm:max-w-[650px] max-h-[90vh] overflow-hidden bg-stone-900 border-stone-700 rounded-xl p-0 ${
           isMobile ? "w-[calc(100%-16px)] mx-auto" : ""
         }`}
-        aria-describedby="booking-description"
       >
+        <DialogHeader className="sr-only">
+          <DialogTitle>Boka tid för {serviceName}</DialogTitle>
+          <DialogDescription>
+            Boka din tid för {serviceName} till priset {price}
+          </DialogDescription>
+        </DialogHeader>
+
         <AnimatePresence mode="wait">
           {bookingStep === "loading" && (
             <motion.div
@@ -82,11 +88,11 @@ export function BookingModal({ isOpen, onClose, serviceName, bookingUrl, price }
 
           {bookingStep === "booking" && (
             <motion.div key="booking" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-              <DialogHeader className="p-6 md:p-8">
+              <div className="p-6 md:p-8">
                 <div className="flex items-center justify-between mb-6">
-                  <DialogTitle className="text-xl md:text-2xl font-bold">
+                  <h2 className="text-xl md:text-2xl font-bold">
                     VIKING SALONG
-                  </DialogTitle>
+                  </h2>
                   <Button
                     variant="ghost"
                     size="icon"
@@ -97,9 +103,7 @@ export function BookingModal({ isOpen, onClose, serviceName, bookingUrl, price }
                     <span className="sr-only">Stäng</span>
                   </Button>
                 </div>
-              </DialogHeader>
 
-              <div className="px-6 md:px-8 pb-6 md:pb-8">
                 <Button
                   className="w-full bg-amber-600 hover:bg-amber-500 text-white py-4 sm:py-6 text-base sm:text-lg font-bold touch-target"
                   onClick={() => window.location.href = `tel:0367779997`}

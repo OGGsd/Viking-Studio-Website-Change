@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
 import { X, Download } from "lucide-react"
 import Image from "next/image"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 
 interface PWAInstallPromptProps {
   manuallyTriggered?: boolean
@@ -152,82 +153,79 @@ export function PWAInstallPrompt({ manuallyTriggered = false, onClose, deferredP
   if (!showPrompt) return null
 
   return (
-    <AnimatePresence>
-      {showPrompt && (
-        <motion.div
-          initial={{ opacity: 0, y: 0, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 0, scale: 0.9 }}
-          transition={{ type: "spring", stiffness: 400, damping: 40 }}
-          className="fixed z-50 inset-0 flex items-center justify-center px-4"
-        >
-          <div className="bg-white rounded-xl shadow-2xl overflow-hidden max-w-md w-full">
-            <div className="p-4">
-              <div className="flex items-start justify-between mb-4">
-                <h3 className="text-lg font-semibold text-stone-900">Installera app</h3>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={dismissPrompt}
-                  className="h-8 w-8 rounded-full hover:bg-stone-100 text-stone-500"
-                >
-                  <X className="h-4 w-4" />
-                  <span className="sr-only">Stäng</span>
-                </Button>
-              </div>
+    <Dialog open={showPrompt} onOpenChange={dismissPrompt}>
+      <DialogContent className="bg-white rounded-xl shadow-2xl overflow-hidden max-w-md w-full">
+        <DialogHeader className="sr-only">
+          <DialogTitle>Installera app</DialogTitle>
+          <DialogDescription>
+            Installera Viking Salong appen för en bättre upplevelse
+          </DialogDescription>
+        </DialogHeader>
 
-              <div className="flex items-center gap-3 mb-4">
-                <div className="h-12 w-12 rounded-full overflow-hidden bg-black flex-shrink-0">
-                  <Image
-                    src="/android-chrome-512x512.png"
-                    alt="Viking Salong Logo"
-                    width={48}
-                    height={48}
-                    className="object-cover"
-                  />
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-stone-900">
-                    Viking Salong - Professionell Herrfrisör i Jönköping
-                  </p>
-                  <p className="text-xs text-stone-500">vikingsalong.axiestudio.se</p>
-                </div>
-              </div>
+        <div className="p-4">
+          <div className="flex items-start justify-between mb-4">
+            <h3 className="text-lg font-semibold text-stone-900">Installera app</h3>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={dismissPrompt}
+              className="h-8 w-8 rounded-full hover:bg-stone-100 text-stone-500"
+            >
+              <X className="h-4 w-4" />
+              <span className="sr-only">Stäng</span>
+            </Button>
+          </div>
 
-              {isIOS ? (
-                <div className="mb-4 text-sm text-stone-600">
-                  <p>För att installera appen på din iOS-enhet:</p>
-                  <ol className="list-decimal pl-5 mt-2 space-y-1">
-                    <li>Tryck på dela-ikonen i Safari</li>
-                    <li>Scrolla ner och tryck på "Lägg till på hemskärmen"</li>
-                    <li>Tryck på "Lägg till" i övre högra hörnet</li>
-                  </ol>
-                </div>
-              ) : (
-                <p className="mb-4 text-sm text-stone-600">
-                  Installera Viking Salong på din enhet för snabbare åtkomst och en bättre upplevelse.
-                </p>
-              )}
-
-              <div className="flex gap-3 justify-end">
-                <Button
-                  variant="outline"
-                  onClick={dismissPrompt}
-                  className="border-stone-300 text-stone-700 hover:bg-stone-100"
-                >
-                  Avbryt
-                </Button>
-                {!isIOS && (
-                  <Button onClick={handleInstall} className="bg-amber-600 hover:bg-amber-500 text-white">
-                    <Download className="mr-2 h-4 w-4" />
-                    Installera
-                  </Button>
-                )}
-              </div>
+          <div className="flex items-center gap-3 mb-4">
+            <div className="h-12 w-12 rounded-full overflow-hidden bg-black flex-shrink-0">
+              <Image
+                src="/android-chrome-512x512.png"
+                alt="Viking Salong Logo"
+                width={48}
+                height={48}
+                className="object-cover"
+              />
+            </div>
+            <div>
+              <p className="text-sm font-medium text-stone-900">
+                Viking Salong - Professionell Herrfrisör i Jönköping
+              </p>
+              <p className="text-xs text-stone-500">vikingsalong.axiestudio.se</p>
             </div>
           </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+
+          {isIOS ? (
+            <div className="mb-4 text-sm text-stone-600">
+              <p>För att installera appen på din iOS-enhet:</p>
+              <ol className="list-decimal pl-5 mt-2 space-y-1">
+                <li>Tryck på dela-ikonen i Safari</li>
+                <li>Scrolla ner och tryck på "Lägg till på hemskärmen"</li>
+                <li>Tryck på "Lägg till" i övre högra hörnet</li>
+              </ol>
+            </div>
+          ) : (
+            <p className="mb-4 text-sm text-stone-600">
+              Installera Viking Salong på din enhet för snabbare åtkomst och en bättre upplevelse.
+            </p>
+          )}
+
+          <div className="flex gap-3 justify-end">
+            <Button
+              variant="outline"
+              onClick={dismissPrompt}
+              className="border-stone-300 text-stone-700 hover:bg-stone-100"
+            >
+              Avbryt
+            </Button>
+            {!isIOS && (
+              <Button onClick={handleInstall} className="bg-amber-600 hover:bg-amber-500 text-white">
+                <Download className="mr-2 h-4 w-4" />
+                Installera
+              </Button>
+            )}
+          </div>
+        </div>
+      </DialogContent>
+    </Dialog>
   )
 }
