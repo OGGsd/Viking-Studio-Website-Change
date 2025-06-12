@@ -1,3 +1,5 @@
+'use client'
+
 import Image from "next/image"
 import { useState, useEffect, useRef } from "react"
 import { Instagram, Facebook, MapPin, Phone, Clock, Menu, ChevronRight, Star, Calendar } from "lucide-react"
