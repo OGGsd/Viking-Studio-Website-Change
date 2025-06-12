@@ -1012,8 +1012,9 @@ function HomePage() {
                 Kontakt
               </a>
               <InstallAppButton
-                className="hover:text-amber-400 transition text-center md:text-left text-sm md:text-base"
-                variant="link"
+                className="hover:text-amber-400 transition text-center md:text-left text-sm md:text-base bg-amber-600 hover:bg-amber-500 text-white px-3 py-1 rounded"
+                variant="default"
+                hidden={false}
               />
             </div>
 
