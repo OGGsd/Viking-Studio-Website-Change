@@ -60,7 +60,7 @@ const videos = [
 // Updated booking URL - using the single iframe URL for all services
 const bookingUrl = "https://api.leadconnectorhq.com/widget/booking/CcVkF1JcMj1eb6eEUFkk"
 
-function HomePage() {
+export default function HomePage() {
   // State to track if the page has been hydrated
   const [isHydrated, setIsHydrated] = useState(false)
   const [isScrolling, setIsScrolling] = useState(false)
@@ -1055,5 +1055,3 @@ function HomePage() {
     </div>
   )
 }
-
-export default HomePage

@@ -11,7 +11,11 @@ const nextConfig = {
     domains: ['vikingsalong.axiestudio.se'],
   },
   // Ensure proper module resolution
-  transpilePackages: ['framer-motion']
+  transpilePackages: ['framer-motion'],
+  // Fix for client-side routing issues
+  experimental: {
+    appDir: true,
+  },
 };
 
 export default nextConfig;
