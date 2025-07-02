@@ -1,11 +1,10 @@
 "use client"
 import { useState, useEffect } from "react"
-import { X, CheckCircle2, Loader2 } from "lucide-react"
+import { X, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { motion, AnimatePresence } from "framer-motion"
 import { useMediaQuery } from "@/hooks/use-media-query"
-import { useRouter } from "next/navigation"
 
 interface BookingModalProps {
   isOpen: boolean
@@ -18,7 +17,6 @@ interface BookingModalProps {
 export function BookingModal({ isOpen, onClose, serviceName, bookingUrl, price }: BookingModalProps) {
   const [bookingStep, setBookingStep] = useState<"loading" | "booking">("loading")
   const [iframeLoaded, setIframeLoaded] = useState(false)
-  const router = useRouter()
 
   // Media queries for responsive design
   const isMobile = useMediaQuery("(max-width: 640px)")
@@ -49,28 +47,6 @@ export function BookingModal({ isOpen, onClose, serviceName, bookingUrl, price }
     setBookingStep("loading")
     onClose()
   }
-
-  // Handle iframe messages for booking completion
-  useEffect(() => {
-    const handleMessage = (event: MessageEvent) => {
-      // Check if message is from the booking widget
-      if (event.origin === 'https://api.leadconnectorhq.com') {
-        if (event.data.type === 'booking_completed' || event.data === 'booking_completed') {
-          // Close modal and redirect to confirmation page
-          handleCloseModal()
-          router.push('/bekraftelse')
-        }
-      }
-    }
-
-    if (isOpen) {
-      window.addEventListener('message', handleMessage)
-    }
-
-    return () => {
-      window.removeEventListener('message', handleMessage)
-    }
-  }, [isOpen, router])
 
   return (
     <Dialog open={isOpen} onOpenChange={handleCloseModal}>
