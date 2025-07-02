@@ -57,19 +57,8 @@ const videos = [
   }
 ]
 
-// Booking URLs for each service
-const bookingUrls = {
-  herrklippning: "https://api.leadconnectorhq.com/widget/booking/sMhSs45jTqvuU1i8Vtwp?user_id=j9AQvQTGUiNpsEQUkStS",
-  pensionar: "https://api.leadconnectorhq.com/widget/booking/UsUhSPgitp8eKkF7KAaG",
-  barn: "https://api.leadconnectorhq.com/widget/booking/aMSgRcmyvcuPxUxdYWCa",
-  student: "https://api.leadconnectorhq.com/widget/booking/yciH8eaawHFYSyqHAqBp",
-  snaggning: "https://api.leadconnectorhq.com/widget/booking/qclJbSCCD3JlN2zWvLqo",
-  klippSkagg: "https://api.leadconnectorhq.com/widget/booking/JM6cQaotjxPoLF3yB7Zp",
-  klippSkaggPensionar: "https://api.leadconnectorhq.com/widget/booking/oGX645SPeeI0Lox00Kdb",
-  klippSkaggStudent: "https://api.leadconnectorhq.com/widget/booking/aM7MmhRcguf402m7n0BX",
-  skaggRakning: "https://api.leadconnectorhq.com/widget/booking/CM06OMbK6hAYFVuK2R95",
-  skaggKlippning: "https://api.leadconnectorhq.com/widget/booking/A58Tr1UChBAZKPQKj3iC",
-}
+// Updated booking URL - using the single iframe URL for all services
+const bookingUrl = "https://api.leadconnectorhq.com/widget/booking/CcVkF1JcMj1eb6eEUFkk"
 
 function HomePage() {
   // State to track if the page has been hydrated
@@ -623,7 +612,7 @@ function HomePage() {
               name="Herrklippning"
               price="280:-"
               description="Professionell klippning anpassad efter dina önskemål och ansiktsform. Inkluderar tvätt och styling."
-              bookingUrl={bookingUrls.herrklippning}
+              bookingUrl={bookingUrl}
               duration="30 min"
               popular={true}
             />
@@ -633,7 +622,7 @@ function HomePage() {
               name="Pensionär"
               price="230:-"
               description="Specialpris för pensionärer. Inkluderar klippning och styling."
-              bookingUrl={bookingUrls.pensionar}
+              bookingUrl={bookingUrl}
               duration="30 min"
             />
 
@@ -642,7 +631,7 @@ function HomePage() {
               name="Barn Klippning"
               price="230:-"
               description="Klippning för barn. Anpassad för att göra upplevelsen rolig och bekväm."
-              bookingUrl={bookingUrls.barn}
+              bookingUrl={bookingUrl}
               duration="25 min"
             />
 
@@ -651,7 +640,7 @@ function HomePage() {
               name="Student"
               price="230:-"
               description="Specialpris för studenter. Glöm inte att ta med studentlegitimation."
-              bookingUrl={bookingUrls.student}
+              bookingUrl={bookingUrl}
               duration="30 min"
             />
 
@@ -660,7 +649,7 @@ function HomePage() {
               name="Snaggning"
               price="140:-"
               description="Enkel och snabb klippning med maskin i en längd över hela huvudet."
-              bookingUrl={bookingUrls.snaggning}
+              bookingUrl={bookingUrl}
               duration="15 min"
             />
 
@@ -669,7 +658,7 @@ function HomePage() {
               name="Klipp + Skägg"
               price="400:-"
               description="Både hår- och skäggklippning i ett paket. Perfekt för dig som vill ha en komplett uppfräschning."
-              bookingUrl={bookingUrls.klippSkagg}
+              bookingUrl={bookingUrl}
               duration="45 min"
               popular={true}
             />
@@ -679,7 +668,7 @@ function HomePage() {
               name="Klipp + Skägg Pensionär"
               price="350:-"
               description="Kombinerad hår- och skäggklippning till specialpris för pensionärer."
-              bookingUrl={bookingUrls.klippSkaggPensionar}
+              bookingUrl={bookingUrl}
               duration="45 min"
             />
 
@@ -688,7 +677,7 @@ function HomePage() {
               name="Klipp + Skägg Student"
               price="350:-"
               description="Kombinerad hår- och skäggklippning till specialpris för studenter."
-              bookingUrl={bookingUrls.klippSkaggStudent}
+              bookingUrl={bookingUrl}
               duration="45 min"
             />
 
@@ -697,7 +686,7 @@ function HomePage() {
               name="Skägg Rakning"
               price="170:-"
               description="Professionell rakning av skägg med kniv för en slät och ren finish."
-              bookingUrl={bookingUrls.skaggRakning}
+              bookingUrl={bookingUrl}
               duration="20 min"
             />
 
@@ -706,7 +695,7 @@ function HomePage() {
               name="Skägg Klippning"
               price="100:-"
               description="Trimning och formning av skägg med maskin för att uppnå önskad stil."
-              bookingUrl={bookingUrls.skaggKlippning}
+              bookingUrl={bookingUrl}
               duration="15 min"
             />
           </div>
@@ -718,7 +707,7 @@ function HomePage() {
               name="Herrklippning"
               price="280:-"
               description="Professionell klippning anpassad efter dina önskemål och ansiktsform. Inkluderar tvätt och styling."
-              bookingUrl={bookingUrls.herrklippning}
+              bookingUrl={bookingUrl}
               duration="30 min"
               popular={true}
             />
@@ -728,7 +717,7 @@ function HomePage() {
               name="Pensionär"
               price="230:-"
               description="Specialpris för pensionärer. Inkluderar klippning och styling."
-              bookingUrl={bookingUrls.pensionar}
+              bookingUrl={bookingUrl}
               duration="30 min"
             />
 
@@ -737,7 +726,7 @@ function HomePage() {
               name="Barn Klippning"
               price="230:-"
               description="Klippning för barn. Anpassad för att göra upplevelsen rolig och bekväm."
-              bookingUrl={bookingUrls.barn}
+              bookingUrl={bookingUrl}
               duration="25 min"
             />
 
@@ -746,7 +735,7 @@ function HomePage() {
               name="Student"
               price="230:-"
               description="Specialpris för studenter. Glöm inte att ta med studentlegitimation."
-              bookingUrl={bookingUrls.student}
+              bookingUrl={bookingUrl}
               duration="30 min"
             />
 
@@ -755,7 +744,7 @@ function HomePage() {
               name="Snaggning"
               price="140:-"
               description="Enkel och snabb klippning med maskin i en längd över hela huvudet."
-              bookingUrl={bookingUrls.snaggning}
+              bookingUrl={bookingUrl}
               duration="15 min"
             />
 
@@ -764,7 +753,7 @@ function HomePage() {
               name="Klipp + Skägg"
               price="400:-"
               description="Både hår- och skäggklippning i ett paket. Perfekt för dig som vill ha en komplett uppfräschning."
-              bookingUrl={bookingUrls.klippSkagg}
+              bookingUrl={bookingUrl}
               duration="45 min"
               popular={true}
             />
@@ -774,7 +763,7 @@ function HomePage() {
               name="Klipp + Skägg Pensionär"
               price="350:-"
               description="Kombinerad hår- och skäggklippning till specialpris för pensionärer."
-              bookingUrl={bookingUrls.klippSkaggPensionar}
+              bookingUrl={bookingUrl}
               duration="45 min"
             />
 
@@ -783,7 +772,7 @@ function HomePage() {
               name="Klipp + Skägg Student"
               price="350:-"
               description="Kombinerad hår- och skäggklippning till specialpris för studenter."
-              bookingUrl={bookingUrls.klippSkaggStudent}
+              bookingUrl={bookingUrl}
               duration="45 min"
             />
 
@@ -792,7 +781,7 @@ function HomePage() {
               name="Skägg Rakning"
               price="170:-"
               description="Professionell rakning av skägg med kniv för en slät och ren finish."
-              bookingUrl={bookingUrls.skaggRakning}
+              bookingUrl={bookingUrl}
               duration="20 min"
             />
 
@@ -801,7 +790,7 @@ function HomePage() {
               name="Skägg Klippning"
               price="100:-"
               description="Trimning och formning av skägg med maskin för att uppnå önskad stil."
-              bookingUrl={bookingUrls.skaggKlippning}
+              bookingUrl={bookingUrl}
               duration="15 min"
             />
           </div>
@@ -1061,11 +1050,8 @@ function HomePage() {
       {/* Mobile Navigation */}
       {isHydrated && <MobileNavigation scrollToSection={scrollToSection} />}
 
-      {/* Cookie Consent Banner */}
+      {/* Cookie Consent Banner - Only on Desktop */}
       {isHydrated && <CookieConsent />}
-
-      {/* NO MORE AUTOMATIC PWA INSTALL PROMPT! */}
-      {/* The PWA prompt will ONLY show when the button is clicked */}
     </div>
   )
 }
