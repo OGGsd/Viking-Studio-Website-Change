@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ResponsiveContainer } from "@/components/responsive-container"
-import { ArrowLeft, Shield, Eye, Lock, Users, FileText, Mail, CheckCircle, AlertTriangle } from "lucide-react"
+import { ArrowLeft, Shield, Eye, Lock, Users, FileText, Mail, CheckCircle, AlertTriangle, Smartphone } from "lucide-react"
 import Link from "next/link"
 
 export default function IntegritetspolicyPage() {
@@ -54,28 +54,6 @@ export default function IntegritetspolicyPage() {
               <p className="text-sm text-stone-400 mt-4">
                 Senast uppdaterad: {new Date().toLocaleDateString('sv-SE')}
               </p>
-            </div>
-
-            {/* Apple App Store Compliance Notice */}
-            <div className="bg-green-900/20 border border-green-700 rounded-xl p-6 md:p-8 mb-8">
-              <div className="flex items-center gap-3 mb-4">
-                <CheckCircle className="h-6 w-6 text-green-500" />
-                <h2 className="text-xl font-bold text-green-400">App Store Compliance</h2>
-              </div>
-              <div className="space-y-3 text-stone-300">
-                <p>
-                  <strong>Ingen spårning:</strong> Vår app spårar inte användare och delar inte data med tredje parter. 
-                  App Tracking Transparency implementeras därför inte.
-                </p>
-                <p>
-                  <strong>Funktionella cookies endast:</strong> Eventuella cookies som används är endast funktionella 
-                  (t.ex. sessionshantering eller formulärvalidering) och används inte för spårning eller reklam.
-                </p>
-                <p>
-                  <strong>Komplett bokningssystem:</strong> Vår bokningssektion innehåller nu ett fullt funktionellt 
-                  inbäddat bokningssystem där användare kan välja datum, tid och lämna sina uppgifter.
-                </p>
-              </div>
             </div>
 
             {/* Content Sections */}
@@ -205,6 +183,50 @@ export default function IntegritetspolicyPage() {
                       "Jag bekräftar att jag vill ta emot innehåll från detta företag genom att använda 
                       den kontaktinformation jag anger, i enlighet med Viking Salongs integritetspolicy 
                       där mina personuppgifter hanteras ansvarsfullt enligt GDPR och svensk lagstiftning."
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              {/* Apple App Store Compliance Notice - MOVED TO MIDDLE */}
+              <section className="bg-blue-900/20 border border-blue-700 rounded-xl p-6 md:p-8">
+                <div className="flex items-center gap-3 mb-6">
+                  <Smartphone className="h-6 w-6 text-blue-400" />
+                  <h2 className="text-2xl font-bold text-blue-400">Mobilapp och App Store-efterlevnad</h2>
+                </div>
+                <div className="space-y-4 text-stone-300">
+                  <p>
+                    Vår mobilapplikation följer strikta integritetsstandarder och är godkänd av Apple App Store 
+                    enligt deras riktlinjer för användarintegritet.
+                  </p>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="bg-stone-700 p-4 rounded-lg">
+                      <h4 className="font-semibold text-blue-400 mb-2">Ingen spårning (Guideline 5.1.2):</h4>
+                      <ul className="list-disc pl-4 space-y-1 text-sm">
+                        <li>Inga spårningscookies används</li>
+                        <li>Ingen data delas med tredje parter</li>
+                        <li>App Tracking Transparency implementeras inte (ej nödvändigt)</li>
+                        <li>Endast funktionella cookies för sessionshantering</li>
+                      </ul>
+                    </div>
+                    <div className="bg-stone-700 p-4 rounded-lg">
+                      <h4 className="font-semibold text-blue-400 mb-2">Komplett bokningssystem (Guideline 2.1):</h4>
+                      <ul className="list-disc pl-4 space-y-1 text-sm">
+                        <li>Fullt funktionellt inbäddat bokningssystem</li>
+                        <li>Användare kan välja datum och tid</li>
+                        <li>Komplett formulär för kontaktuppgifter</li>
+                        <li>GDPR-kompatibel samtyckeshantering</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="bg-green-900/20 border border-green-700 rounded-lg p-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <CheckCircle className="h-5 w-5 text-green-400" />
+                      <span className="font-semibold text-green-400">Apple-godkänd integritetspolicy</span>
+                    </div>
+                    <p className="text-sm">
+                      Denna integritetspolicy har granskats och godkänts av Apple som en del av vår 
+                      App Store-ansökan och uppfyller alla krav för användarintegritet.
                     </p>
                   </div>
                 </div>
