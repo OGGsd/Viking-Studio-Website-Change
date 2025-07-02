@@ -12,7 +12,6 @@ import { MobileNavigation } from "@/components/mobile-navigation"
 import { CookieConsent } from "@/components/cookie-consent"
 import { useMediaQuery } from "@/hooks/use-media-query"
 import dynamic from "next/dynamic"
-import { InstallAppButton } from "@/components/install-app-button"
 import Link from "next/link"
 
 // Importera den nya hooken högst upp i filen, efter de andra importerna
@@ -179,14 +178,14 @@ export default function HomePage() {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-400 transition-all duration-300 group-hover:w-full"></span>
             </a>
             <a
-              href="#vara-verk"
+              href="#portfolio"
               onClick={(e) => {
                 e.preventDefault()
-                scrollToSection("vara-verk")
+                scrollToSection("portfolio")
               }}
               className="hover:text-amber-400 transition-colors duration-300 relative group"
             >
-              Våra Verk
+              Portfolio
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-400 transition-all duration-300 group-hover:w-full"></span>
             </a>
             <a
@@ -252,14 +251,14 @@ export default function HomePage() {
                   <ChevronRight className="h-5 w-5 text-amber-500" />
                 </a>
                 <a
-                  href="#vara-verk"
+                  href="#portfolio"
                   onClick={(e) => {
                     e.preventDefault()
-                    scrollToSection("vara-verk")
+                    scrollToSection("portfolio")
                   }}
                   className="text-lg hover:text-amber-400 transition py-2 flex items-center justify-between"
                 >
-                  Våra Verk
+                  Portfolio
                   <ChevronRight className="h-5 w-5 text-amber-500" />
                 </a>
                 <a
@@ -417,10 +416,10 @@ export default function HomePage() {
       </section>
 
       {/* Video Reels Section */}
-      <section id="vara-verk" className="relative">
+      <section id="portfolio" className="relative">
         <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-stone-800 to-transparent z-10"></div>
         <div className="text-center pt-16 md:pt-24 pb-6 md:pb-8 relative z-10">
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 tracking-tight">VÅRA VERK</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 tracking-tight">PORTFOLIO</h2>
           <div className="w-16 md:w-24 h-1 bg-amber-600 mx-auto"></div>
           <p className="text-base sm:text-lg md:text-xl mt-4 md:mt-6 max-w-2xl mx-auto text-stone-200 px-4">
             Bläddra genom våra senaste arbeten och se vår expertis i aktion. Svep upp eller ner för att se fler
@@ -961,14 +960,14 @@ export default function HomePage() {
                 Hem
               </a>
               <a
-                href="#vara-verk"
+                href="#portfolio"
                 onClick={(e) => {
                   e.preventDefault()
-                  scrollToSection("vara-verk")
+                  scrollToSection("portfolio")
                 }}
                 className="hover:text-amber-400 transition text-center md:text-left text-sm md:text-base"
               >
-                Våra Verk
+                Portfolio
               </a>
               <a
                 href="#barberare"
@@ -1006,11 +1005,6 @@ export default function HomePage() {
               >
                 Integritetspolicy
               </Link>
-              <InstallAppButton
-                className="hover:text-amber-400 transition text-center md:text-left text-sm md:text-base bg-amber-600 hover:bg-amber-500 text-white px-3 py-1 rounded"
-                variant="default"
-                hidden={false}
-              />
             </div>
 
             <div className="flex gap-4 mt-4 md:mt-0">
