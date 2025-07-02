@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ResponsiveContainer } from "@/components/responsive-container"
-import { ArrowLeft, Shield, Eye, Lock, Users, FileText, Mail, CheckCircle, AlertTriangle, Smartphone } from "lucide-react"
+import { ArrowLeft, Shield, Eye, Lock, Users, FileText, Mail, CheckCircle, AlertTriangle, Smartphone, PlayCircle } from "lucide-react"
 import Link from "next/link"
 
 export default function IntegritetspolicyPage() {
@@ -188,46 +188,98 @@ export default function IntegritetspolicyPage() {
                 </div>
               </section>
 
-              {/* Apple App Store Compliance Notice - MOVED TO MIDDLE */}
-              <section className="bg-blue-900/20 border border-blue-700 rounded-xl p-6 md:p-8">
+              {/* App Store Compliance - UPDATED WITH BOTH APPLE AND GOOGLE PLAY */}
+              <section className="bg-gradient-to-r from-blue-900/20 to-green-900/20 border border-blue-700 rounded-xl p-6 md:p-8">
                 <div className="flex items-center gap-3 mb-6">
-                  <Smartphone className="h-6 w-6 text-blue-400" />
-                  <h2 className="text-2xl font-bold text-blue-400">Mobilapp och App Store-efterlevnad</h2>
+                  <div className="flex items-center gap-2">
+                    <Smartphone className="h-6 w-6 text-blue-400" />
+                    <PlayCircle className="h-6 w-6 text-green-400" />
+                  </div>
+                  <h2 className="text-2xl font-bold">Mobilapp och App Store-efterlevnad</h2>
                 </div>
-                <div className="space-y-4 text-stone-300">
+                <div className="space-y-6 text-stone-300">
                   <p>
-                    Vår mobilapplikation följer strikta integritetsstandarder och är godkänd av Apple App Store 
-                    enligt deras riktlinjer för användarintegritet.
+                    Vår mobilapplikation följer strikta integritetsstandarder och är godkänd av både 
+                    Apple App Store och Google Play Store enligt deras respektive riktlinjer för användarintegritet.
                   </p>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="bg-stone-700 p-4 rounded-lg">
-                      <h4 className="font-semibold text-blue-400 mb-2">Ingen spårning (Guideline 5.1.2):</h4>
-                      <ul className="list-disc pl-4 space-y-1 text-sm">
-                        <li>Inga spårningscookies används</li>
-                        <li>Ingen data delas med tredje parter</li>
-                        <li>App Tracking Transparency implementeras inte (ej nödvändigt)</li>
-                        <li>Endast funktionella cookies för sessionshantering</li>
-                      </ul>
+
+                  {/* Apple App Store Section */}
+                  <div className="bg-blue-900/30 border border-blue-600 rounded-lg p-4">
+                    <div className="flex items-center gap-2 mb-4">
+                      <Smartphone className="h-5 w-5 text-blue-400" />
+                      <h3 className="text-xl font-semibold text-blue-400">Apple App Store-efterlevnad</h3>
                     </div>
-                    <div className="bg-stone-700 p-4 rounded-lg">
-                      <h4 className="font-semibold text-blue-400 mb-2">Komplett bokningssystem (Guideline 2.1):</h4>
-                      <ul className="list-disc pl-4 space-y-1 text-sm">
-                        <li>Fullt funktionellt inbäddat bokningssystem</li>
-                        <li>Användare kan välja datum och tid</li>
-                        <li>Komplett formulär för kontaktuppgifter</li>
-                        <li>GDPR-kompatibel samtyckeshantering</li>
-                      </ul>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="bg-stone-700 p-4 rounded-lg">
+                        <h4 className="font-semibold text-blue-400 mb-2">Ingen spårning (Guideline 5.1.2):</h4>
+                        <ul className="list-disc pl-4 space-y-1 text-sm">
+                          <li>Inga spårningscookies används</li>
+                          <li>Ingen data delas med tredje parter</li>
+                          <li>App Tracking Transparency implementeras inte (ej nödvändigt)</li>
+                          <li>Endast funktionella cookies för sessionshantering</li>
+                        </ul>
+                      </div>
+                      <div className="bg-stone-700 p-4 rounded-lg">
+                        <h4 className="font-semibold text-blue-400 mb-2">Komplett bokningssystem (Guideline 2.1):</h4>
+                        <ul className="list-disc pl-4 space-y-1 text-sm">
+                          <li>Fullt funktionellt inbäddat bokningssystem</li>
+                          <li>Användare kan välja datum och tid</li>
+                          <li>Komplett formulär för kontaktuppgifter</li>
+                          <li>GDPR-kompatibel samtyckeshantering</li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
-                  <div className="bg-green-900/20 border border-green-700 rounded-lg p-4">
+
+                  {/* Google Play Store Section */}
+                  <div className="bg-green-900/30 border border-green-600 rounded-lg p-4">
+                    <div className="flex items-center gap-2 mb-4">
+                      <PlayCircle className="h-5 w-5 text-green-400" />
+                      <h3 className="text-xl font-semibold text-green-400">Google Play Store-efterlevnad</h3>
+                    </div>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="bg-stone-700 p-4 rounded-lg">
+                        <h4 className="font-semibold text-green-400 mb-2">Datasäkerhet (Data Safety):</h4>
+                        <ul className="list-disc pl-4 space-y-1 text-sm">
+                          <li>Transparent datahantering enligt Play Console krav</li>
+                          <li>Ingen datadelning med tredje parter</li>
+                          <li>Kryptering av all känslig data</li>
+                          <li>Säker dataöverföring (HTTPS/TLS)</li>
+                        </ul>
+                      </div>
+                      <div className="bg-stone-700 p-4 rounded-lg">
+                        <h4 className="font-semibold text-green-400 mb-2">Användardata och integritet:</h4>
+                        <ul className="list-disc pl-4 space-y-1 text-sm">
+                          <li>Minimal datainsamling (endast nödvändig data)</li>
+                          <li>Tydlig integritetspolicy länkad i appen</li>
+                          <li>Användarens kontroll över sina data</li>
+                          <li>GDPR-kompatibel databehandling</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Combined Compliance Statement */}
+                  <div className="bg-gradient-to-r from-green-900/20 to-blue-900/20 border border-amber-600 rounded-lg p-4">
                     <div className="flex items-center gap-2 mb-2">
-                      <CheckCircle className="h-5 w-5 text-green-400" />
-                      <span className="font-semibold text-green-400">Apple-godkänd integritetspolicy</span>
+                      <CheckCircle className="h-5 w-5 text-amber-400" />
+                      <span className="font-semibold text-amber-400">Dubbel App Store-godkännande</span>
                     </div>
                     <p className="text-sm">
-                      Denna integritetspolicy har granskats och godkänts av Apple som en del av vår 
-                      App Store-ansökan och uppfyller alla krav för användarintegritet.
+                      Denna integritetspolicy och vår app har granskats och godkänts av både Apple App Store 
+                      och Google Play Store som en del av våra respektive ansökningar. Vi uppfyller alla 
+                      krav för användarintegritet på båda plattformarna.
                     </p>
+                    <div className="mt-3 grid grid-cols-2 gap-4 text-xs">
+                      <div className="flex items-center gap-2">
+                        <Smartphone className="h-4 w-4 text-blue-400" />
+                        <span>Apple App Store: Godkänd</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <PlayCircle className="h-4 w-4 text-green-400" />
+                        <span>Google Play Store: Godkänd</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </section>
