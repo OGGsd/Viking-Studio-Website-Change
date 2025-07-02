@@ -27,7 +27,7 @@ export function MobileNavigation({ scrollToSection }: MobileNavigationProps) {
       const sections = [
         { id: "home", element: document.getElementById("hero") },
         { id: "om-oss", element: document.getElementById("om-oss") },
-        { id: "vara-verk", element: document.getElementById("vara-verk") },
+        { id: "portfolio", element: document.getElementById("portfolio") },
         { id: "barberare", element: document.getElementById("barberare") },
         { id: "tjanster", element: document.getElementById("tjanster") },
         { id: "kontakt", element: document.getElementById("kontakt") },
@@ -78,13 +78,13 @@ export function MobileNavigation({ scrollToSection }: MobileNavigationProps) {
             <span className="text-sm md:text-xs mt-1">Hem</span>
           </button>
           <button
-            onClick={() => handleNavigation("vara-verk")}
+            onClick={() => handleNavigation("portfolio")}
             className={`flex flex-col items-center justify-center w-1/5 py-2 ${
-              activeSection === "vara-verk" ? "text-amber-500" : "text-stone-400"
+              activeSection === "portfolio" ? "text-amber-500" : "text-stone-400"
             }`}
           >
             <Scissors className="h-6 w-6 md:h-5 md:w-5" />
-            <span className="text-sm md:text-xs mt-1">Verk</span>
+            <span className="text-sm md:text-xs mt-1">Portfolio</span>
           </button>
           <button
             onClick={() => handleNavigation("barberare")}
@@ -170,11 +170,11 @@ export function MobileNavigation({ scrollToSection }: MobileNavigationProps) {
                   <span className="text-xl">Om Oss</span>
                 </button>
                 <button
-                  onClick={() => handleNavigation("vara-verk")}
+                  onClick={() => handleNavigation("portfolio")}
                   className="flex items-center gap-4 py-3 border-b border-stone-800"
                 >
                   <Scissors className="h-6 w-6 text-amber-500" />
-                  <span className="text-xl">Våra Verk</span>
+                  <span className="text-xl">Portfolio</span>
                 </button>
                 <button
                   onClick={() => handleNavigation("barberare")}

@@ -12,7 +12,6 @@ import { MobileNavigation } from "@/components/mobile-navigation"
 import { CookieConsent } from "@/components/cookie-consent"
 import { useMediaQuery } from "@/hooks/use-media-query"
 import dynamic from "next/dynamic"
-import { InstallAppButton } from "@/components/install-app-button"
 import Link from "next/link"
 
 // Importera den nya hooken högst upp i filen, efter de andra importerna
@@ -57,21 +56,10 @@ const videos = [
   }
 ]
 
-// Booking URLs for each service
-const bookingUrls = {
-  herrklippning: "https://api.leadconnectorhq.com/widget/booking/sMhSs45jTqvuU1i8Vtwp?user_id=j9AQvQTGUiNpsEQUkStS",
-  pensionar: "https://api.leadconnectorhq.com/widget/booking/UsUhSPgitp8eKkF7KAaG",
-  barn: "https://api.leadconnectorhq.com/widget/booking/aMSgRcmyvcuPxUxdYWCa",
-  student: "https://api.leadconnectorhq.com/widget/booking/yciH8eaawHFYSyqHAqBp",
-  snaggning: "https://api.leadconnectorhq.com/widget/booking/qclJbSCCD3JlN2zWvLqo",
-  klippSkagg: "https://api.leadconnectorhq.com/widget/booking/JM6cQaotjxPoLF3yB7Zp",
-  klippSkaggPensionar: "https://api.leadconnectorhq.com/widget/booking/oGX645SPeeI0Lox00Kdb",
-  klippSkaggStudent: "https://api.leadconnectorhq.com/widget/booking/aM7MmhRcguf402m7n0BX",
-  skaggRakning: "https://api.leadconnectorhq.com/widget/booking/CM06OMbK6hAYFVuK2R95",
-  skaggKlippning: "https://api.leadconnectorhq.com/widget/booking/A58Tr1UChBAZKPQKj3iC",
-}
+// Updated booking URL - using the single iframe URL for all services
+const bookingUrl = "https://api.leadconnectorhq.com/widget/booking/CcVkF1JcMj1eb6eEUFkk"
 
-function HomePage() {
+export default function HomePage() {
   // State to track if the page has been hydrated
   const [isHydrated, setIsHydrated] = useState(false)
   const [isScrolling, setIsScrolling] = useState(false)
@@ -190,14 +178,14 @@ function HomePage() {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-400 transition-all duration-300 group-hover:w-full"></span>
             </a>
             <a
-              href="#vara-verk"
+              href="#portfolio"
               onClick={(e) => {
                 e.preventDefault()
-                scrollToSection("vara-verk")
+                scrollToSection("portfolio")
               }}
               className="hover:text-amber-400 transition-colors duration-300 relative group"
             >
-              Våra Verk
+              Portfolio
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-400 transition-all duration-300 group-hover:w-full"></span>
             </a>
             <a
@@ -263,14 +251,14 @@ function HomePage() {
                   <ChevronRight className="h-5 w-5 text-amber-500" />
                 </a>
                 <a
-                  href="#vara-verk"
+                  href="#portfolio"
                   onClick={(e) => {
                     e.preventDefault()
-                    scrollToSection("vara-verk")
+                    scrollToSection("portfolio")
                   }}
                   className="text-lg hover:text-amber-400 transition py-2 flex items-center justify-between"
                 >
-                  Våra Verk
+                  Portfolio
                   <ChevronRight className="h-5 w-5 text-amber-500" />
                 </a>
                 <a
@@ -428,10 +416,10 @@ function HomePage() {
       </section>
 
       {/* Video Reels Section */}
-      <section id="vara-verk" className="relative">
+      <section id="portfolio" className="relative">
         <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-stone-800 to-transparent z-10"></div>
         <div className="text-center pt-16 md:pt-24 pb-6 md:pb-8 relative z-10">
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 tracking-tight">VÅRA VERK</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 tracking-tight">PORTFOLIO</h2>
           <div className="w-16 md:w-24 h-1 bg-amber-600 mx-auto"></div>
           <p className="text-base sm:text-lg md:text-xl mt-4 md:mt-6 max-w-2xl mx-auto text-stone-200 px-4">
             Bläddra genom våra senaste arbeten och se vår expertis i aktion. Svep upp eller ner för att se fler
@@ -623,7 +611,7 @@ function HomePage() {
               name="Herrklippning"
               price="280:-"
               description="Professionell klippning anpassad efter dina önskemål och ansiktsform. Inkluderar tvätt och styling."
-              bookingUrl={bookingUrls.herrklippning}
+              bookingUrl={bookingUrl}
               duration="30 min"
               popular={true}
             />
@@ -633,7 +621,7 @@ function HomePage() {
               name="Pensionär"
               price="230:-"
               description="Specialpris för pensionärer. Inkluderar klippning och styling."
-              bookingUrl={bookingUrls.pensionar}
+              bookingUrl={bookingUrl}
               duration="30 min"
             />
 
@@ -642,7 +630,7 @@ function HomePage() {
               name="Barn Klippning"
               price="230:-"
               description="Klippning för barn. Anpassad för att göra upplevelsen rolig och bekväm."
-              bookingUrl={bookingUrls.barn}
+              bookingUrl={bookingUrl}
               duration="25 min"
             />
 
@@ -651,7 +639,7 @@ function HomePage() {
               name="Student"
               price="230:-"
               description="Specialpris för studenter. Glöm inte att ta med studentlegitimation."
-              bookingUrl={bookingUrls.student}
+              bookingUrl={bookingUrl}
               duration="30 min"
             />
 
@@ -660,7 +648,7 @@ function HomePage() {
               name="Snaggning"
               price="140:-"
               description="Enkel och snabb klippning med maskin i en längd över hela huvudet."
-              bookingUrl={bookingUrls.snaggning}
+              bookingUrl={bookingUrl}
               duration="15 min"
             />
 
@@ -669,7 +657,7 @@ function HomePage() {
               name="Klipp + Skägg"
               price="400:-"
               description="Både hår- och skäggklippning i ett paket. Perfekt för dig som vill ha en komplett uppfräschning."
-              bookingUrl={bookingUrls.klippSkagg}
+              bookingUrl={bookingUrl}
               duration="45 min"
               popular={true}
             />
@@ -679,7 +667,7 @@ function HomePage() {
               name="Klipp + Skägg Pensionär"
               price="350:-"
               description="Kombinerad hår- och skäggklippning till specialpris för pensionärer."
-              bookingUrl={bookingUrls.klippSkaggPensionar}
+              bookingUrl={bookingUrl}
               duration="45 min"
             />
 
@@ -688,7 +676,7 @@ function HomePage() {
               name="Klipp + Skägg Student"
               price="350:-"
               description="Kombinerad hår- och skäggklippning till specialpris för studenter."
-              bookingUrl={bookingUrls.klippSkaggStudent}
+              bookingUrl={bookingUrl}
               duration="45 min"
             />
 
@@ -697,7 +685,7 @@ function HomePage() {
               name="Skägg Rakning"
               price="170:-"
               description="Professionell rakning av skägg med kniv för en slät och ren finish."
-              bookingUrl={bookingUrls.skaggRakning}
+              bookingUrl={bookingUrl}
               duration="20 min"
             />
 
@@ -706,7 +694,7 @@ function HomePage() {
               name="Skägg Klippning"
               price="100:-"
               description="Trimning och formning av skägg med maskin för att uppnå önskad stil."
-              bookingUrl={bookingUrls.skaggKlippning}
+              bookingUrl={bookingUrl}
               duration="15 min"
             />
           </div>
@@ -718,7 +706,7 @@ function HomePage() {
               name="Herrklippning"
               price="280:-"
               description="Professionell klippning anpassad efter dina önskemål och ansiktsform. Inkluderar tvätt och styling."
-              bookingUrl={bookingUrls.herrklippning}
+              bookingUrl={bookingUrl}
               duration="30 min"
               popular={true}
             />
@@ -728,7 +716,7 @@ function HomePage() {
               name="Pensionär"
               price="230:-"
               description="Specialpris för pensionärer. Inkluderar klippning och styling."
-              bookingUrl={bookingUrls.pensionar}
+              bookingUrl={bookingUrl}
               duration="30 min"
             />
 
@@ -737,7 +725,7 @@ function HomePage() {
               name="Barn Klippning"
               price="230:-"
               description="Klippning för barn. Anpassad för att göra upplevelsen rolig och bekväm."
-              bookingUrl={bookingUrls.barn}
+              bookingUrl={bookingUrl}
               duration="25 min"
             />
 
@@ -746,7 +734,7 @@ function HomePage() {
               name="Student"
               price="230:-"
               description="Specialpris för studenter. Glöm inte att ta med studentlegitimation."
-              bookingUrl={bookingUrls.student}
+              bookingUrl={bookingUrl}
               duration="30 min"
             />
 
@@ -755,7 +743,7 @@ function HomePage() {
               name="Snaggning"
               price="140:-"
               description="Enkel och snabb klippning med maskin i en längd över hela huvudet."
-              bookingUrl={bookingUrls.snaggning}
+              bookingUrl={bookingUrl}
               duration="15 min"
             />
 
@@ -764,7 +752,7 @@ function HomePage() {
               name="Klipp + Skägg"
               price="400:-"
               description="Både hår- och skäggklippning i ett paket. Perfekt för dig som vill ha en komplett uppfräschning."
-              bookingUrl={bookingUrls.klippSkagg}
+              bookingUrl={bookingUrl}
               duration="45 min"
               popular={true}
             />
@@ -774,7 +762,7 @@ function HomePage() {
               name="Klipp + Skägg Pensionär"
               price="350:-"
               description="Kombinerad hår- och skäggklippning till specialpris för pensionärer."
-              bookingUrl={bookingUrls.klippSkaggPensionar}
+              bookingUrl={bookingUrl}
               duration="45 min"
             />
 
@@ -783,7 +771,7 @@ function HomePage() {
               name="Klipp + Skägg Student"
               price="350:-"
               description="Kombinerad hår- och skäggklippning till specialpris för studenter."
-              bookingUrl={bookingUrls.klippSkaggStudent}
+              bookingUrl={bookingUrl}
               duration="45 min"
             />
 
@@ -792,7 +780,7 @@ function HomePage() {
               name="Skägg Rakning"
               price="170:-"
               description="Professionell rakning av skägg med kniv för en slät och ren finish."
-              bookingUrl={bookingUrls.skaggRakning}
+              bookingUrl={bookingUrl}
               duration="20 min"
             />
 
@@ -801,7 +789,7 @@ function HomePage() {
               name="Skägg Klippning"
               price="100:-"
               description="Trimning och formning av skägg med maskin för att uppnå önskad stil."
-              bookingUrl={bookingUrls.skaggKlippning}
+              bookingUrl={bookingUrl}
               duration="15 min"
             />
           </div>
@@ -972,14 +960,14 @@ function HomePage() {
                 Hem
               </a>
               <a
-                href="#vara-verk"
+                href="#portfolio"
                 onClick={(e) => {
                   e.preventDefault()
-                  scrollToSection("vara-verk")
+                  scrollToSection("portfolio")
                 }}
                 className="hover:text-amber-400 transition text-center md:text-left text-sm md:text-base"
               >
-                Våra Verk
+                Portfolio
               </a>
               <a
                 href="#barberare"
@@ -1017,11 +1005,6 @@ function HomePage() {
               >
                 Integritetspolicy
               </Link>
-              <InstallAppButton
-                className="hover:text-amber-400 transition text-center md:text-left text-sm md:text-base bg-amber-600 hover:bg-amber-500 text-white px-3 py-1 rounded"
-                variant="default"
-                hidden={false}
-              />
             </div>
 
             <div className="flex gap-4 mt-4 md:mt-0">
@@ -1061,13 +1044,8 @@ function HomePage() {
       {/* Mobile Navigation */}
       {isHydrated && <MobileNavigation scrollToSection={scrollToSection} />}
 
-      {/* Cookie Consent Banner */}
+      {/* Cookie Consent Banner - Only on Desktop */}
       {isHydrated && <CookieConsent />}
-
-      {/* NO MORE AUTOMATIC PWA INSTALL PROMPT! */}
-      {/* The PWA prompt will ONLY show when the button is clicked */}
     </div>
   )
 }
-
-export default HomePage
